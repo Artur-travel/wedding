@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:title" content="Артур и Юля">
+<meta property="og:description" content="Наша свадьба, 5 сентября 2026">
+<meta property="og:image" content="photos/5428.jpg">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}</style>
+<title>Артур и Юля</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@400;500;600&display=swap">
+<style>
+/* Layout: one long scroll, like turning the pages of an album. Full-bleed hero, then chapters of the day, each a caption column + a photo grid. */
+:root{
+  --bg:#f6f7f3;        /* white of the colonnade */
+  --paper:#ffffff;
+  --ink:#1d2740;       /* navy of the groom's suit */
+  --muted:#5d6675;
+  --leaf:#4f6b4a;      /* lily-of-the-valley leaves */
+  --blush:#e9cdbd;     /* pink wall of the portraits */
+  --line:#dfe3da;
+  --display:"Cormorant Garamond", "Times New Roman", Georgia, serif;
+  --body:"Manrope", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12161f;--paper:#1a1f2b;--ink:#eef0ea;--muted:#a7aebb;--leaf:#9dbb92;--blush:#c99a86;--line:#2b3242;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#12161f;--paper:#1a1f2b;--ink:#eef0ea;--muted:#a7aebb;--leaf:#9dbb92;--blush:#c99a86;--line:#2b3242;color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.65}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+
+/* nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.top .wrap{display:flex;align-items:center;gap:20px;padding-block:12px;overflow-x:auto;scrollbar-width:none}
+nav.top .mono{font-family:var(--display);font-style:italic;font-size:22px;white-space:nowrap;margin-right:auto}
+nav.top a{color:var(--muted);text-decoration:none;font-size:13px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+nav.top a:hover,nav.top a:focus-visible{color:var(--ink)}
+
+/* hero */
+.hero{position:relative;display:grid;grid-template-columns:1.05fr .95fr;min-height:min(86vh,820px)}
+.hero .photo{position:relative;overflow:hidden}
+.hero .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.hero .text{display:flex;flex-direction:column;justify-content:center;gap:22px;padding-block:48px;padding-left:max(28px, 5vw);padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--leaf);font-weight:600}
+.names{font-family:var(--display);font-weight:400;font-size:clamp(56px,9vw,128px);line-height:.92;margin:0;text-wrap:balance}
+.names .amp{display:block;font-style:italic;color:var(--leaf);font-size:.55em;line-height:1.2;padding-left:.3em}
+.date{font-family:var(--display);font-size:clamp(22px,2.4vw,30px);font-style:italic;color:var(--muted);margin:0}
+.lede{max-width:34ch;color:var(--muted);margin:0}
+.count{display:flex;gap:28px;padding-top:8px;border-top:1px solid var(--line);max-width:420px}
+.count div{display:flex;flex-direction:column}
+.count b{font-family:var(--display);font-size:34px;font-weight:500;line-height:1;font-variant-numeric:tabular-nums}
+.count span{font-size:12px;color:var(--muted);letter-spacing:.04em}
+
+/* chapters */
+section.ch{padding-block:clamp(56px,9vw,112px);border-top:1px solid var(--line)}
+.ch-head{display:grid;grid-template-columns:200px 1fr;gap:24px 48px;align-items:end;margin-bottom:36px}
+.ch-head .no{font-family:var(--display);font-style:italic;font-size:20px;color:var(--leaf)}
+.ch-head h2{font-family:var(--display);font-weight:400;font-size:clamp(38px,5.4vw,68px);line-height:1;margin:0;text-wrap:balance}
+.ch-head p{grid-column:2;max-width:58ch;color:var(--muted);margin:0}
+
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+.grid figure{margin:0;overflow:hidden;background:var(--line);cursor:zoom-in;position:relative}
+.grid figure img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.grid figure:hover img{transform:scale(1.03)}
+.grid figure:focus-visible{outline:2px solid var(--leaf);outline-offset:3px}
+.s3{grid-column:span 3}.s4{grid-column:span 4}.s5{grid-column:span 5}.s6{grid-column:span 6}.s7{grid-column:span 7}.s8{grid-column:span 8}.s12{grid-column:span 12}
+.t{aspect-ratio:2/3}.w{aspect-ratio:3/2}.sq{aspect-ratio:4/5}
+.r2{grid-row:span 2}
+
+/* quote band */
+.band{background:var(--blush);color:#2a2230;padding-block:clamp(48px,8vw,96px)}
+.band q{display:block;font-family:var(--display);font-style:italic;font-size:clamp(28px,4vw,48px);line-height:1.2;max-width:24ch;margin:0 auto;text-align:center;quotes:none}
+.band .by{display:block;text-align:center;margin-top:18px;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+
+/* portraits pair */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pair figure{margin:0;position:relative;cursor:zoom-in;overflow:hidden}
+.pair img{aspect-ratio:2/3;object-fit:cover;width:100%}
+.pair figcaption{position:absolute;left:16px;bottom:12px;font-family:var(--display);font-style:italic;font-size:clamp(28px,4vw,44px);color:#fff;text-shadow:0 1px 14px rgba(0,0,0,.35)}
+
+/* evening: darker chapter */
+section.evening{background:#171320;color:#f2ece6;border-top:0}
+section.evening .ch-head p{color:#c8bfc9}
+section.evening .ch-head .no{color:#e3b49c}
+section.evening .grid figure{background:#2a2333}
+
+footer{padding-block:72px 96px;text-align:center}
+footer .names{font-size:clamp(44px,6vw,72px)}
+footer p{color:var(--muted);margin:14px auto 0;max-width:46ch}
+.btn{display:inline-block;margin-top:24px;padding:14px 26px;border:1px solid var(--ink);color:var(--ink);text-decoration:none;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.btn:hover,.btn:focus-visible{background:var(--ink);color:var(--bg)}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:50;background:rgba(10,12,18,.94);display:flex;align-items:center;justify-content:center;padding:calc(env(safe-area-inset-top,0px) + 48px) max(56px, env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 48px) max(56px, env(safe-area-inset-left,0px))}
+.lb img{max-height:100%;max-width:100%;object-fit:contain}
+.lb button{position:absolute;background:none;border:0;color:#fff;font-size:34px;cursor:pointer;padding:10px 14px;line-height:1;font-family:var(--display)}
+.lb button:focus-visible{outline:2px solid #fff}
+.lb .x{top:calc(env(safe-area-inset-top,0px) + 8px);right:max(8px, env(safe-area-inset-right,0px))}
+.lb .prev{left:max(4px, env(safe-area-inset-left,0px));top:50%;transform:translateY(-50%)}
+.lb .next{right:max(4px, env(safe-area-inset-right,0px));top:50%;transform:translateY(-50%)}
+.lb .n{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);left:0;right:0;text-align:center;color:#bbb;font-size:12px;letter-spacing:.1em;font-variant-numeric:tabular-nums}
+
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero .photo{aspect-ratio:4/5}
+  .hero .text{padding-left:max(16px, env(safe-area-inset-left, 0px))}
+  .ch-head{grid-template-columns:1fr}
+  .ch-head p{grid-column:1}
+  .grid{grid-template-columns:repeat(6,1fr);gap:8px}
+  .s3,.s4,.s5{grid-column:span 3}.s6,.s7,.s8,.s12{grid-column:span 6}
+  .r2{grid-row:auto}
+  .lb{padding-left:8px;padding-right:8px}
+}
+</style>
+
+</head>
+<body>
+<nav class="top" aria-label="Разделы">
+  <div class="wrap">
+    <span class="mono">А &amp; Ю</span>
+    <a href="#rotunda">Ротонда</a>
+    <a href="#details">Кольца</a>
+    <a href="#fountain">У фонтана</a>
+    <a href="#portraits">Портреты</a>
+    <a href="#family">Близкие</a>
+    <a href="#evening">Вечер</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="photo"><img src="photos/5428.jpg" alt="Артур и Юля у розовой стены" fetchpriority="high"></div>
+  <div class="text">
+    <span class="eyebrow">Наша свадьба</span>
+    <h1 class="names">Артур <span class="amp">и Юля</span></h1>
+    <p class="date">5 сентября 2026</p>
+    <p class="lede">Один тёплый сентябрьский день: прогулка среди белых колонн, ландыши, фонтан и вечер с самыми близкими.</p>
+    <div class="count">
+      <div><b>358</b><span>кадров</span></div>
+      <div><b>1</b><span>день</span></div>
+      <div><b>2</b><span>кольца</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="ch" id="rotunda">
+  <div class="wrap">
+    <div class="ch-head">
+      <span class="no">Глава первая</span>
+      <h2>Среди белых колонн</h2>
+      <p>Первые кадры дня. Белый костюм, синий пиджак, букет ландышей и солнечные очки.</p>
+    </div>
+    <div class="grid">
+      <figure class="s5 t r2"><img src="photos/5240.jpg" alt="" loading="lazy"></figure>
+      <figure class="s7 w"><img src="photos/5249.jpg" alt="" loading="lazy"></figure>
+      <figure class="s3 t"><img src="photos/5257.jpg" alt="" loading="lazy"></figure>
+      <figure class="s4 t"><img src="photos/5266.jpg" alt="" loading="lazy"></figure>
+      <figure class="s4 t"><img src="photos/5233.jpg" alt="" loading="lazy"></figure>
+      <figure class="s4 t"><img src="photos/5302.jpg" alt="" loading="lazy"></figure>
+      <figure class="s4 t"><img src="photos/5304.jpg" alt="" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="details">
+  <div class="wrap">
+    <div class="ch-head">
+      <span class="no">Глава вторая</span>
+      <h2>Кольца и ландыши</h2>
+      <p>Маленькие детали, которые хочется запомнить.</p>
+    </div>
+    <div class="grid">
+      <figure class="s3 t"><img src="photos/5311.jpg" alt="" loading="lazy"></figure>
+      <figure class="s3 t"><img src="photos/5315.jpg" alt="" loading="lazy"></figure>
+      <figure class="s3 t"><img src="photos/5310.jpg" alt="" loading="lazy"></figure>
+      <figure class="s3 t"><img src="photos/5343.jpg" alt="" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<div class="band"><div class="wrap"><q>И в горе, и в радости. А сегодня — только в радости.</q><span class="by">5 · 09 · 2026</span></div></div>
+
+<section class="ch" id="fountain">
+  <div class="wrap">
+    <div class="ch-head">
+      <span class="no">Глава третья</span>
+      <h2>Прогулка у фонтана</h2>
+      <p>Парк, цветы, брызги воды и много поцелуев.</p>
+    </div>
+    <div class="grid">
+      <figure class="s4 t"><img src="photos/5401.jpg" alt="" loading="lazy"></figure>
+      <figure class="s4 t"><img src="photos/5352.jpg" alt="" loading="lazy"></figure>
+      <figure class="s4 t"><img src="photos/5421.jpg" alt="" loading="lazy"></figure>
+      <figure class="s6 t"><img src="photos/5392.jpg" alt="" loading="lazy"></figure>
+      <figure class="s6 t"><img src="photos/5364.jpg" alt="" loading="lazy"></figure>
+      <figure class="s3 t"><img src="photos/5346.jpg" alt="" loading="lazy"></figure>
+      <figure class="s3 t"><img src="photos/5370.jpg" alt="" loading="lazy"></figure>
+      <figure class="s3 t"><img src="photos/5377.jpg" alt="" loading="lazy"></figure>
+      <figure class="s3 t"><img src="photos/5397.jpg" alt="" loading="lazy"></figure>
+      <figure class="s6 t"><img src="photos/5404.jpg" alt="" loading="lazy"></figure>
+      <figure class="s6 t"><img src="photos/5417.jpg" alt="" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="portraits">
+  <div class="wrap">
+    <div class="ch-head">
+      <span class="no">Глава четвёртая</span>
+      <h2>Он и она</h2>
+      <p>Портреты у розовой стены.</p>
+    </div>
+    <div class="pair" style="margin-bottom:12px">
+      <figure><img src="photos/5440.jpg" alt="Юля" loading="lazy"><figcaption>Юля</figcaption></figure>
+      <figure><img src="photos/5441.jpg" alt="Артур" loading="lazy"><figcaption>Артур</figcaption></figure>
+    </div>
+    <div class="grid">
+      <figure class="s3 t"><img src="photos/5423.jpg" alt="" loading="lazy"></figure>
+      <figure class="s3 t"><img src="photos/5429.jpg" alt="" loading="lazy"></figure>
+      <figure class="s3 t"><img src="photos/5431.jpg" alt="" loading="lazy"></figure>
+      <figure class="s3 t"><img src="photos/5436.jpg" alt="" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="ch" id="family">
+  <div class="wrap">
+    <div class="ch-head">
+      <span class="no">Глава пятая</span>
+      <h2>Самые близкие</h2>
+      <p>Родные и друзья, которые были рядом в этот день.</p>
+    </div>
+    <div class="grid">
+      <figure class="s12 w"><img src="photos/5449.jpg" alt="" loading="lazy"></figure>
+      <figure class="s6 w"><img src="photos/5467.jpg" alt="" loading="lazy"></figure>
+      <figure class="s6 w"><img src="photos/5285.jpg" alt="" loading="lazy"></figure>
+      <figure class="s6 t"><img src="photos/5274.jpg" alt="" loading="lazy"></figure>
+      <figure class="s6 t"><img src="photos/5333.jpg" alt="" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="ch evening" id="evening">
+  <div class="wrap">
+    <div class="ch-head">
+      <span class="no">Глава шестая</span>
+      <h2>Вечер</h2>
+      <p>Шары, блёстки, танцы и смех до поздней ночи.</p>
+    </div>
+    <div class="grid">
+      <figure class="s7 w"><img src="photos/5471.jpg" alt="" loading="lazy"></figure>
+      <figure class="s5 t r2"><img src="photos/5477.jpg" alt="" loading="lazy"></figure>
+      <figure class="s7 w"><img src="photos/5560.jpg" alt="" loading="lazy"></figure>
+      <figure class="s4 t"><img src="photos/5486.jpg" alt="" loading="lazy"></figure>
+      <figure class="s4 t"><img src="photos/5604.jpg" alt="" loading="lazy"></figure>
+      <figure class="s4 t"><img src="photos/5599.jpg" alt="" loading="lazy" style="object-position:50% 50%"></figure>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <h2 class="names">Артур <span class="amp">и Юля</span></h2>
+    <p>Спасибо всем, кто был с нами 5 сентября. Здесь только часть кадров, остальные лежат в общей папке.</p>
+    <a class="btn" href="https://disk.yandex.ru/d/55NddQ7O9uCDNw" target="_blank" rel="noopener">Все 358 фотографий</a>
+  </div>
+</footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Просмотр фото">
+  <img id="lbimg" alt="">
+  <button class="x" id="lbx" aria-label="Закрыть">×</button>
+  <button class="prev" id="lbp" aria-label="Предыдущее">‹</button>
+  <button class="next" id="lbn" aria-label="Следующее">›</button>
+  <div class="n" id="lbc"></div>
+</div>
+
+<script>
+(function(){
+  const figs=[...document.querySelectorAll('.grid figure, .pair figure')];
+  const lb=document.getElementById('lb'),img=document.getElementById('lbimg'),cnt=document.getElementById('lbc');
+  let i=0,last=null;
+  function show(k){i=(k+figs.length)%figs.length;img.src=figs[i].querySelector('img').src;cnt.textContent=(i+1)+' / '+figs.length}
+  function open(k){last=document.activeElement;show(k);lb.hidden=false;document.body.style.overflow='hidden';document.getElementById('lbx').focus()}
+  function close(){lb.hidden=true;document.body.style.overflow='';if(last)last.focus()}
+  figs.forEach((f,k)=>{f.tabIndex=0;f.setAttribute('role','button');f.setAttribute('aria-label','Открыть фото '+(k+1));
+    f.addEventListener('click',()=>open(k));f.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(k)}})});
+  document.getElementById('lbx').onclick=close;
+  document.getElementById('lbp').onclick=()=>show(i-1);
+  document.getElementById('lbn').onclick=()=>show(i+1);
+  lb.addEventListener('click',e=>{if(e.target===lb)close()});
+  document.addEventListener('keydown',e=>{if(lb.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1)});
+  let sx=null;lb.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+  lb.addEventListener('touchend',e=>{if(sx==null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)show(dx<0?i+1:i-1);sx=null});
+})();
+</script>
+</body>
+</html>
